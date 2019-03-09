@@ -44,7 +44,7 @@ public class ProcessUsers {
     }
 
     /**
-     * This method reads users from a text file and stores them in the userList.
+     * This method returns a list containing all users in the userAccounts.txt file.
      * @return this.userList - A list containing all users in the userAccounts.txt file.
      */
     public ArrayList<User> getUsers() {
