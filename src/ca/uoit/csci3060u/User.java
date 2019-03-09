@@ -1,3 +1,5 @@
+package ca.uoit.csci3060u;
+
 public class User {
     private String username;
     private String accountType;

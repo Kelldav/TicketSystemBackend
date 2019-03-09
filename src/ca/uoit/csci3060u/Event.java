@@ -1,3 +1,5 @@
+package ca.uoit.csci3060u;
+
 public class Event {
     private String eventName;
     private String sellerUsername;
