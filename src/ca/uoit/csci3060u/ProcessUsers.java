@@ -14,7 +14,7 @@ public class ProcessUsers {
      * @param filename - Text file containing user accounts.
      * @return None
      */
-    public void readUsersFile(String filename) {
+    public Boolean readUsersFile(String filename) {
         userList = new ArrayList<User>(); // Initialize userList
 
         // Read userAccounts.txt file
@@ -37,8 +37,10 @@ public class ProcessUsers {
                 line = reader.readLine(); // read next line
             }
             reader.close();
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
 
     }

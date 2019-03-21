@@ -153,52 +153,71 @@ public class UpdateFiles {
         }
     }
 
-    void writeDTF() throws IOException {
+    Boolean writeDTF(){
         // Write updated transactions to new daily transactions file
         String transactionStr = "";
         String filename = "newDailyTransactionFile.txt";
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter(filename));
+            for (Transaction transaction : transactionList) {
+                if (transaction.code.equals("01") || transaction.code.equals("02") || transaction.code.equals("06") || transaction.code.equals("00")) {
+                    transactionStr = transaction.code + paddingSpace("name", transaction.username) + transaction.userType + paddingZero("credit", transaction.credit, 0);
+                }
+                else if (transaction.code.equals("05")) {
+                    transactionStr = transaction.code + paddingSpace("name", transaction.username) + paddingSpace("name", transaction.seller) + paddingZero("credit", transaction.credit, 0);
+                }
+                else if (transaction.code.equals("04") || transaction.code.equals("04")) {
+                    transactionStr = transaction.code + paddingSpace("event", transaction.eventName) + paddingSpace("name", transaction.seller) + paddingZero("tickets", 0,transaction.ticketAmount) + paddingZero("price", transaction.ticketPrice, 0);
+                }
 
-        for (Transaction transaction : transactionList) {
-            if (transaction.code.equals("01") || transaction.code.equals("02") || transaction.code.equals("06") || transaction.code.equals("00")) {
-                transactionStr = transaction.code + paddingSpace("name", transaction.username) + transaction.userType + paddingZero("credit", transaction.credit, 0);
+                writer.write(transactionStr);
             }
-            else if (transaction.code.equals("05")) {
-                transactionStr = transaction.code + paddingSpace("name", transaction.username) + paddingSpace("name", transaction.seller) + paddingZero("credit", transaction.credit, 0);
-            }
-            else if (transaction.code.equals("04") || transaction.code.equals("04")) {
-                transactionStr = transaction.code + paddingSpace("event", transaction.eventName) + paddingSpace("name", transaction.seller) + paddingZero("tickets", 0,transaction.ticketAmount) + paddingZero("price", transaction.ticketPrice, 0);
-            }
-
-            writer.write(transactionStr);
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
         }
-        writer.close();
 
     }
 
-    void writeEventsFile() throws IOException {
+    Boolean writeEventsFile() {
         String eventStr = "";
         String filename = "newAvailableTickets.txt";
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
-        for (Event event : eventList) {
-            eventStr = paddingSpace("event", event.getEventName()) + paddingSpace("name", event.getSellerUsername()) + paddingZero("tickets", 0, event.getNumOfTickets()) + paddingZero("price", event.getTicketPrice(), 0);
-            writer.write(eventStr);
+            for (Event event : eventList) {
+                eventStr = paddingSpace("event", event.getEventName()) + paddingSpace("name", event.getSellerUsername()) + paddingZero("tickets", 0, event.getNumOfTickets()) + paddingZero("price", event.getTicketPrice(), 0);
+                writer.write(eventStr);
+            }
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
         }
-        writer.close();
 
     }
 
-    void writeUserAccountsFile() throws IOException {
+    Boolean writeUserAccountsFile() {
         String userStr = "";
         String filename = "newUserAccounts.txt";
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
-        for (User user : userList) {
-            userStr = paddingSpace("name", user.getUsername()) + user.getAccountType() + paddingZero("credit", user.getCredit(), 0);
-            writer.write(userStr);
+            for (User user : userList) {
+                userStr = paddingSpace("name", user.getUsername()) + user.getAccountType() + paddingZero("credit", user.getCredit(), 0);
+                writer.write(userStr);
+            }
+            writer.close();
+            return true;
         }
-        writer.close();
+        catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
