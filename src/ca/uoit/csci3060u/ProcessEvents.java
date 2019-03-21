@@ -11,9 +11,9 @@ public class ProcessEvents {
     /**
      * This method reads events from the availableTickets.txt file and stores them in the eventList.
      * @param filename - Text file containing available tickets accounts.
-     * @return None
+     * @return Boolean - read file successfully
      */
-    public void readTicketsFile(String filename) {
+    public Boolean readTicketsFile(String filename) {
         eventList = new ArrayList<Event>(); // Initialize eventList
 
         // Read availableTickets.txt file
@@ -41,8 +41,9 @@ public class ProcessEvents {
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
-
+        return true;
     }
 
     /**

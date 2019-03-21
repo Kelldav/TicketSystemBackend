@@ -18,9 +18,10 @@ public class processTransactions {
 	 *                 XX_UUUUUUUUUUUUUUU_SSSSSSSSSSSSSSS_CCCCCCCCC (05-refund)
 	 *                 XX_EEEEEEEEEEEEEEEEEEE_SSSSSSSSSSSSS_TTT_PPPPPP (03-sell,
 	 *                 04-buy)
+	 * @return Boolean - Read file without error
 	 * 
 	 */
-	void readMergedTransactions(String filename) {
+	Boolean readMergedTransactions(String filename) {
 		transactionList = new ArrayList<Transaction>();
 		int i;
 		String character;
@@ -101,7 +102,9 @@ public class processTransactions {
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 
 	}
 

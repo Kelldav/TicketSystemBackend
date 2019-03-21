@@ -9,9 +9,16 @@ public class processTransactionsTest {
 
     @Test
     public void readMergedTransactions() {
-        processTransactions pt = new processTransactions();
-        Boolean result = pt.readMergedTransactions("files/dailyTransactionFile.txt");
-        Assert.assertEquals(true, result);
+
+        // branch coverage
+        processTransactions pt1 = new processTransactions();
+        Boolean result1 = pt1.readMergedTransactions("files/fakeDailyTransactionFile.txt");
+        Assert.assertEquals(false, result1);
+
+        // Loop coverage
+        processTransactions pt2 = new processTransactions();
+        Boolean result2 = pt2.readMergedTransactions("files/dailyTransactionFile.txt");
+        Assert.assertEquals(true, result2);
     }
 
     @Test
