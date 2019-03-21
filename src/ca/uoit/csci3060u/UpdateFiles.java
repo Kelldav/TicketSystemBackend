@@ -258,7 +258,7 @@ public class UpdateFiles {
             if (name.length() < 13)
             {
                 while (name.length() < 13) {
-                    name += "_";
+                    name += " ";
                 }
             }
         }
@@ -268,7 +268,7 @@ public class UpdateFiles {
             if (name.length() < 19)
             {
                 while (name.length() < 19) {
-                    name += "_";
+                    name += " ";
 
                 }
             }

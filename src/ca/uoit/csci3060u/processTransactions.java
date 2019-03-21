@@ -41,7 +41,7 @@ public class processTransactions {
 					}
 					String username = line.substring(3, i);
 					String userType = line.substring(19, 21);
-					float credit = Float.parseFloat(line.substring(22, 31));
+					float credit = Float.parseFloat(line.substring(22, 29));
 
 					// Create temp transaction from line and append transaction to transactionList
 					Transaction tempTransaction = new Transaction(code, username, userType, credit);
@@ -72,7 +72,7 @@ public class processTransactions {
 				}
 
 				// reading a transaction of sell or buy
-				else if (code.equals("3") || code.equals("4")) {
+				else if (code.equals("03") || code.equals("04")) {
 					i = 22;
 					character = line.substring(i - 1, i);
 					while (character == " ") {
@@ -105,86 +105,9 @@ public class processTransactions {
 
 	}
 
-	/**
-	 * Appends the transaction to today's transaction file
-	 */
-	void processTransactions() {
-
+	public ArrayList<Transaction> getTransactions() {
+		return this.transactionList;
 	}
 
-/**
-   * This method adds padding (zeros) to credit, number of tickets, or ticket price strings for writing to the daily transaction file.
-   * @param type - Dictates the type of numerical input
-   * @param credit - The amount of credit
-   * @param numOfTickets - The number of tickets
-   * @return string - This returns a string with the number padded by zeroes
-*/
-String paddingZero(String type, float credit, int numOfTickets)
-{
-    String str;
-    String paddedStr = "";
-
-    if (type == "credit")
-    {
-
-        str = Float.toString(credit);
-        // Padding user credit (9 characters)
-        if (str.length() < 9)
-        {
-            paddedStr = "0".repeat(9-str.length()) + str;
-        }
-    }
-    if (type == "tickets")
-    {
-        str = Integer.toString(numOfTickets);
-        // Padding number of tickets (3 characters)
-        if (str.length() < 3)
-        {
-			paddedStr = "0".repeat(3-str.length()) + str;
-        }
-    }
-    if (type == "price")
-    {
-		str = Float.toString(credit);
-		// Padding price per ticket (6 characters)
-        if (str.length() < 6)
-        {
-			paddedStr = "0".repeat(6-str.length()) + str;
-        }
-    }
-    return paddedStr;
-}
-
-	/**
-	 * This method adds padding spaces (_) to usernames, or event names for writing to the daily transaction file.
-	 * @param type - Dictates the type of text needing space padding
-	 * @param name - The text to be padded
-	 * @return string - This returns the string padded with '_' characters
-	 */
-	String paddingSpace(String type, String name)
-	{
-		if (type == "name")
-		{
-			// Padding username (13 characters)
-			if (name.length() < 13)
-			{
-				while (name.length() < 13) {
-					name += "_";
-				}
-			}
-		}
-		else if (type == "event")
-		{
-			// Padding event (19 characters)
-			if (name.length() < 19)
-			{
-				while (name.length() < 19) {
-					name += "_";
-
-				}
-			}
-		}
-		return name;
-	}
 
 }

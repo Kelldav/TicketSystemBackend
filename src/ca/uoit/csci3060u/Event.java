@@ -56,4 +56,13 @@ public class Event {
         return ticketPrice;
     }
 
+    /**
+     * This method sets the number of tickets available for the event.
+     *
+     * @return None
+     */
+    public void setNumOfTickets(int numOfTickets) {
+        this.numOfTickets = numOfTickets;
+    }
+
 }
