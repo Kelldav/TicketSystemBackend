@@ -1,2 +1,2 @@
-bigevent____________stdSellUser___100_10.510
-eventTitle__________stdSellUser___200_23.500
+bigevent            stdSellUser   100_10.510
+eventTitle          stdSellUser   200_23.500
