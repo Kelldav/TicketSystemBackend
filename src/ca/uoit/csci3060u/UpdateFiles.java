@@ -154,15 +154,127 @@ public class UpdateFiles {
     }
 
     void writeDTF() throws IOException {
+        // Write updated transactions to new daily transactions file
+        String transactionStr = "";
+        String filename = "newDailyTransactionFile.txt";
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+
+        for (Transaction transaction : transactionList) {
+            if (transaction.code.equals("01") || transaction.code.equals("02") || transaction.code.equals("06") || transaction.code.equals("00")) {
+                transactionStr = transaction.code + paddingSpace("name", transaction.username) + transaction.userType + paddingZero("credit", transaction.credit, 0);
+            }
+            else if (transaction.code.equals("05")) {
+                transactionStr = transaction.code + paddingSpace("name", transaction.username) + paddingSpace("name", transaction.seller) + paddingZero("credit", transaction.credit, 0);
+            }
+            else if (transaction.code.equals("04") || transaction.code.equals("04")) {
+                transactionStr = transaction.code + paddingSpace("event", transaction.eventName) + paddingSpace("name", transaction.seller) + paddingZero("tickets", 0,transaction.ticketAmount) + paddingZero("price", transaction.ticketPrice, 0);
+            }
+
+            writer.write(transactionStr);
+        }
+        writer.close();
 
     }
 
     void writeEventsFile() throws IOException {
+        String eventStr = "";
+        String filename = "newAvailableTickets.txt";
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+
+        for (Event event : eventList) {
+            eventStr = paddingSpace("event", event.getEventName()) + paddingSpace("name", event.getSellerUsername()) + paddingZero("tickets", 0, event.getNumOfTickets()) + paddingZero("price", event.getTicketPrice(), 0);
+            writer.write(eventStr);
+        }
+        writer.close();
 
     }
 
     void writeUserAccountsFile() throws IOException {
+        String userStr = "";
+        String filename = "newUserAccounts.txt";
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
+        for (User user : userList) {
+            userStr = paddingSpace("name", user.getUsername()) + user.getAccountType() + paddingZero("credit", user.getCredit(), 0);
+            writer.write(userStr);
+        }
+        writer.close();
     }
+
+    /**
+     * This method adds padding (zeros) to credit, number of tickets, or ticket price strings for writing to the daily transaction file.
+     * @param type - Dictates the type of numerical input
+     * @param credit - The amount of credit
+     * @param numOfTickets - The number of tickets
+     * @return string - This returns a string with the number padded by zeroes
+     */
+    String paddingZero(String type, float credit, int numOfTickets)
+    {
+        String str;
+        String paddedStr = "";
+
+        if (type == "credit")
+        {
+
+            str = Float.toString(credit);
+            // Padding user credit (9 characters)
+            if (str.length() < 9)
+            {
+                paddedStr = "0".repeat(9-str.length()) + str;
+            }
+        }
+        if (type == "tickets")
+        {
+            str = Integer.toString(numOfTickets);
+            // Padding number of tickets (3 characters)
+            if (str.length() < 3)
+            {
+                paddedStr = "0".repeat(3-str.length()) + str;
+            }
+        }
+        if (type == "price")
+        {
+            str = Float.toString(credit);
+            // Padding price per ticket (6 characters)
+            if (str.length() < 6)
+            {
+                paddedStr = "0".repeat(6-str.length()) + str;
+            }
+        }
+        return paddedStr;
+    }
+
+    /**
+     * This method adds padding spaces (_) to usernames, or event names for writing to the daily transaction file.
+     * @param type - Dictates the type of text needing space padding
+     * @param name - The text to be padded
+     * @return string - This returns the string padded with '_' characters
+     */
+    String paddingSpace(String type, String name)
+    {
+        if (type == "name")
+        {
+            // Padding username (13 characters)
+            if (name.length() < 13)
+            {
+                while (name.length() < 13) {
+                    name += "_";
+                }
+            }
+        }
+        else if (type == "event")
+        {
+            // Padding event (19 characters)
+            if (name.length() < 19)
+            {
+                while (name.length() < 19) {
+                    name += "_";
+
+                }
+            }
+        }
+        return name;
+    }
+
 
 }
