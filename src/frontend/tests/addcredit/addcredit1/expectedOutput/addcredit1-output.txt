@@ -1,0 +1,13 @@
+Welcome to the Ticket Selling Service System
+Enter a system command: 
+Please enter your username: 
+Login successful
+Enter a system command: 
+Please enter credit amount: 
+Please enter username to receive credit: 
+Credit successfully added.
+Enter a system command: 
+Logout successful
+Thank you for using the Ticket Selling Service System 
+
+Enter a system command: 

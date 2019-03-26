@@ -1,0 +1,7 @@
+login
+admin
+create
+username5
+invalidpriv
+logout
+exit

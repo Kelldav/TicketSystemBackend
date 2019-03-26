@@ -1,0 +1,8 @@
+login
+admin
+create
+admin2
+AA
+1000.00
+logout
+exit

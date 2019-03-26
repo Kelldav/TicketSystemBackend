@@ -1,0 +1,7 @@
+login
+admin
+refund
+stdBuyUser
+stdSellUser
+logout
+exit

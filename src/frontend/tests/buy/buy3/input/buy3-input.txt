@@ -1,0 +1,6 @@
+login
+stdBuyUser
+buy
+soldOutEvent
+logout
+exit

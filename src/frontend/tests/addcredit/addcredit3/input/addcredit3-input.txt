@@ -1,0 +1,6 @@
+login
+admin
+addcredit
+1500.00
+logout
+exit

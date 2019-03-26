@@ -1,0 +1,14 @@
+Welcome to the Ticket Selling Service System
+Enter a system command: 
+Please enter your username: 
+Login successful
+Enter a system command: 
+Enter a username: 
+Enter user privilege: 
+Please enter credit amount: 
+Error: The credit amount has an invalid decimal format.
+Enter a system command: 
+Logout successful
+Thank you for using the Ticket Selling Service System 
+
+Enter a system command: 

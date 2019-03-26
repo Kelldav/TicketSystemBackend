@@ -1,0 +1,8 @@
+login
+stdSellUser
+sell
+eventTitle
+15.00
+0
+logout
+exit

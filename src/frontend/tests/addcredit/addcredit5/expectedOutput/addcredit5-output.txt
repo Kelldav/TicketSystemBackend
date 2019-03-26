@@ -1,0 +1,9 @@
+Welcome to the Ticket Selling Service System
+Enter a system command: 
+Please enter your username: 
+Login successful
+Enter a system command: 
+Please enter credit amount: 
+Please enter username to receive credit: 
+Error: Username does not exist in system
+Enter a system command: 

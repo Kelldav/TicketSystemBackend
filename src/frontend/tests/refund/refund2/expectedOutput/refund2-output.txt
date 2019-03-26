@@ -1,0 +1,10 @@
+Welcome to the Ticket Selling Service System
+Enter a system command: 
+Please enter your username: 
+Login successful
+Enter a system command: 
+Please enter buyer username: 
+Please enter seller username: 
+Please enter refund credit amount: 
+Error: The credit amount contains invalid characters.
+Enter a system command: 

@@ -1,0 +1,9 @@
+login
+admin
+buy
+eventTitle
+5
+stdSellUser
+yes
+logout
+exit

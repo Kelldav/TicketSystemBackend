@@ -1,0 +1,8 @@
+login
+admin
+create
+username3
+BS
+1000.00
+logout
+exit

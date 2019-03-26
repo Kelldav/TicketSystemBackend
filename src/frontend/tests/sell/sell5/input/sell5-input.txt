@@ -1,0 +1,7 @@
+login
+stdSellUser
+sell
+eventTitle
+1500.00
+logout
+exit

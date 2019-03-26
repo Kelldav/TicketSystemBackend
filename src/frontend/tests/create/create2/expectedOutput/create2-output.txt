@@ -1,0 +1,9 @@
+Welcome to the Ticket Selling Service System
+Enter a system command: 
+Please enter your username: 
+Login successful
+Enter a system command: 
+Enter a username: 
+Enter user privilege: 
+Error: Invalid input
+Enter a system command: 

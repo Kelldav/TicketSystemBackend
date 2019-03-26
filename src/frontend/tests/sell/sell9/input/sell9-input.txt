@@ -1,0 +1,10 @@
+login
+admin
+sell
+eventTitle
+15.00
+10
+buy
+eventTitle
+logout
+exit

@@ -1,0 +1,4 @@
+login
+stdFullUser
+logout
+exit

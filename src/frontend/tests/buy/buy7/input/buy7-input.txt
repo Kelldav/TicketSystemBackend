@@ -1,0 +1,7 @@
+login
+stdBuyUser
+buy
+eventTitle
+1w
+logout
+exit

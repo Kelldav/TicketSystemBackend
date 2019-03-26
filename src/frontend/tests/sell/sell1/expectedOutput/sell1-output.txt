@@ -1,0 +1,11 @@
+Welcome to the Ticket Selling Service System
+Enter a system command: 
+Please enter your username: 
+Login successful
+Enter a system command: 
+Error: You do not have adequate permissions for this task.
+Enter a system command: 
+Logout successful
+Thank you for using the Ticket Selling Service System 
+
+Enter a system command: 

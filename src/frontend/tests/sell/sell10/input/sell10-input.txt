@@ -1,0 +1,6 @@
+login
+stdSellUser
+sell
+bigevent
+logout
+exit

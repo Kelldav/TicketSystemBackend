@@ -1,0 +1,8 @@
+login
+admin
+create
+username2
+FS
+-1000.00
+logout
+exit

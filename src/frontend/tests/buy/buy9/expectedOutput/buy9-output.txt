@@ -1,0 +1,15 @@
+Welcome to the Ticket Selling Service System
+Enter a system command: 
+Please enter your username: 
+Login successful
+Enter a system command: 
+Please enter event title: 
+Please enter ticket amount: 
+Please enter seller username: 
+Please confirm this purchase, please type "yes" or "no": 
+Error: Insufficient credit.
+Enter a system command: 
+Logout successful
+Thank you for using the Ticket Selling Service System 
+
+Enter a system command: 

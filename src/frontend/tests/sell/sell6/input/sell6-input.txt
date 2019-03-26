@@ -1,0 +1,6 @@
+login
+stdSellUser
+sell
+eventTitleWithMoreThan25Characters
+logout
+exit

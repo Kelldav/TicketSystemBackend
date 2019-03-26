@@ -1,0 +1,6 @@
+login
+admin
+addcredit
+10w
+logout
+exit

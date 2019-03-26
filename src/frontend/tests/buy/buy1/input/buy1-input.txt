@@ -1,0 +1,5 @@
+login
+stdSellUser
+buy
+logout
+exit
