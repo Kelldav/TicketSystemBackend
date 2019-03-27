@@ -16,7 +16,7 @@ string paddingSpace(string type, string name)
         if (name.length() < 13)
         {
             while (name.length() < 13)
-                name.append("_");
+                name.append(" ");
         }
     }
     else if (type == "event")
@@ -25,7 +25,7 @@ string paddingSpace(string type, string name)
         if (name.length() < 19)
         {
             while (name.length() < 19)
-                name.append("_");
+                name.append(" ");
         }
     }
     return name;
@@ -98,7 +98,7 @@ vector<User> readUsers(string userAccounts)
             // User account type - 2 characters
             // User credits - 9 characters
             string tempUsername = userLine.substr(0, 13);
-            string username = tempUsername.substr(0, tempUsername.find('_'));
+            string username = tempUsername.substr(0, tempUsername.find(' '));
             string tempAccountType = userLine.substr(14, 2);
             float tempCredit = atof((userLine.substr(17).c_str()));
             bool tempLoggedIn = false;
@@ -140,11 +140,11 @@ vector<Event> readEvents(string availableTickets)
             int numOfTickets = -1;
             float priceOfTickets = -1;
 
-            eventName = ticketLine.substr(0, 19).substr(0, ticketLine.find('_'));
+            eventName = ticketLine.substr(0, 19).substr(0, ticketLine.find(' '));
             tempSeller = ticketLine.substr(20, 13);
-            seller = tempSeller.substr(0, tempSeller.find('_'));
+            seller = tempSeller.substr(0, tempSeller.find(' '));
             tempTickets = ticketLine.substr(34, 37);
-            numOfTickets = stoi(tempTickets.substr(0, tempTickets.find('_')).c_str());
+            numOfTickets = stoi(tempTickets.substr(0, tempTickets.find(' ')).c_str());
             priceOfTickets = atof(ticketLine.substr(38).c_str());
 
             Event tempEvent(eventName, seller, numOfTickets, priceOfTickets);
@@ -170,9 +170,9 @@ void writeCreateDeleteAddCreditEnd(string code, string username, string accountT
     // Format: XX_UUUUUUUUUUUUU_TT_CCCCCCCCC
     std::ofstream DTFStream;
     DTFStream.open(dailyTransactionFile, std::ios::app);
-    DTFStream << code << "_"
-              << paddingSpace("name", username) << "_"
-              << accountType << "_"
+    DTFStream << code << " "
+              << paddingSpace("name", username) << " "
+              << accountType << " "
               << paddingZero("credit", credit, 0) << "\n";
     DTFStream.close();
 }
@@ -193,10 +193,10 @@ void writeBuySell(string code, string eventName, string username, int numOfTicke
     // Format: XX_EEEEEEEEEEEEEEEEEEE_SSSSSSSSSSSSS_TTT_PPPPPP
     std::ofstream DTFStream;
     DTFStream.open(dailyTransactionFile, std::ios::app);
-    DTFStream << code << "_"
-              << paddingSpace("event", eventName) << "_"
-              << paddingSpace("name", username) << "_"
-              << paddingZero("tickets", 0.0, numOfTickets) << "_"
+    DTFStream << code << " "
+              << paddingSpace("event", eventName) << " "
+              << paddingSpace("name", username) << " "
+              << paddingZero("tickets", 0.0, numOfTickets) << " "
               << paddingZero("price", pricePerTicket, 0) << "\n";
     DTFStream.close();
 }
@@ -216,9 +216,9 @@ void writeRefund(string code, string buyerName, string sellerName, float credit,
     // Format: XX_UUUUUUUUUUUUU_SSSSSSSSSSSSS_TTT_PPPPPP
     std::ofstream DTFStream;
     DTFStream.open(dailyTransactionFile, std::ios::app);
-    DTFStream << code << "_"
-              << paddingSpace("name", buyerName) << "_"
-              << paddingSpace("name", sellerName) << "_"
+    DTFStream << code << " "
+              << paddingSpace("name", buyerName) << " "
+              << paddingSpace("name", sellerName) << " "
               << paddingZero("credit", credit, 0) << "\n";
     DTFStream.close();
 }

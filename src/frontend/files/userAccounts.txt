@@ -1,6 +1,6 @@
-admin_________AA_000000310
-stdFullUser___FS_000099999
-stdBuyUser____BS_000010000
-stdSellUser___SS_000010000
-brokeSellUser_SS_000000000
-brokeBuyUser__BS_000000000
+admin         AA 000000310
+stdFullUser   FS 000099999
+stdBuyUser    BS 000010000
+stdSellUser   SS 000010000
+brokeSellUser SS 000000000
+brokeBuyUser  BS 000000000
