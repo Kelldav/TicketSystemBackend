@@ -2,12 +2,32 @@
 #include "user.h"
 #include "event.h"
 
+
+
+string newTransactionFile()
+{
+  int counter = 0;
+  bool exists = true;
+  string fileName = " ";
+
+  while(exists == true)
+  {
+    fileName = "../../files/DailyTransactions/dailyTransactionFile" + to_string(counter) + ".txt";
+    ifstream infile(fileName);
+    exists = infile.good();
+    counter++;
+  }
+  
+  return fileName;
+}
+
 /**
    * This method adds padding spaces (_) to usernames, or event names for writing to the daily transaction file.
    * @param type - Dictates the type of text needing space padding
    * @param name - The text to be padded
    * @return string - This returns the string padded with '_' characters
 */
+
 string paddingSpace(string type, string name)
 {
     if (type == "name")
@@ -168,6 +188,8 @@ void writeCreateDeleteAddCreditEnd(string code, string username, string accountT
 {
     // Write create(01), delete(02), addcredit(06), end session (00)
     // Format: XX_UUUUUUUUUUUUU_TT_CCCCCCCCC
+
+    dailyTransactionFile = newTransactionFile();
     std::ofstream DTFStream;
     DTFStream.open(dailyTransactionFile, std::ios::app);
     DTFStream << code << " "
@@ -191,6 +213,7 @@ void writeBuySell(string code, string eventName, string username, int numOfTicke
 {
     // Write buy(04), sell(03)
     // Format: XX_EEEEEEEEEEEEEEEEEEE_SSSSSSSSSSSSS_TTT_PPPPPP
+    dailyTransactionFile = newTransactionFile();
     std::ofstream DTFStream;
     DTFStream.open(dailyTransactionFile, std::ios::app);
     DTFStream << code << " "
@@ -214,6 +237,7 @@ void writeRefund(string code, string buyerName, string sellerName, float credit,
 {
     // Write buy (04), sell (03)
     // Format: XX_UUUUUUUUUUUUU_SSSSSSSSSSSSS_TTT_PPPPPP
+    dailyTransactionFile = newTransactionFile();
     std::ofstream DTFStream;
     DTFStream.open(dailyTransactionFile, std::ios::app);
     DTFStream << code << " "

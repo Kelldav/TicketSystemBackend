@@ -8,6 +8,9 @@
 #include "transactions/sell.h"
 #include "transactions/refund.h"
 #include "transactions/addCredit.h"
+#include <fstream>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -75,6 +78,13 @@ void mainMenu(string userAccounts, string availableTickets, string dailyTransact
         mainMenu(userAccounts, availableTickets, dailyTransactionFile);
     }
 }
+
+bool is_file_exist(string fileName)
+{
+    ifstream infile(fileName);
+    return infile.good();
+}
+
 /**
    * Main method starts the program and runs the main menu method to begin
    * @param argc The number of arguements
@@ -83,11 +93,16 @@ void mainMenu(string userAccounts, string availableTickets, string dailyTransact
 */
 int main(int argc, char *argv[])
 {
+
+    bool fileExists = true;
+    string transactionFileName;
+    int counter = 0;
+
     string userAccounts = "../../files/userAccounts.txt";
     string availableTickets = "../../files/availabletickets.txt";
-    string dailyTransactionFile = "../../files/dailyTransactionFile.txt";
+    string dailyTransactionFile = "../../files/DailyTransactions/dailyTransactionFile.txt";
+    
     cout << "Welcome to the Ticket Selling Service System" << endl;
     mainMenu(userAccounts, availableTickets, dailyTransactionFile);
     return 0;
 }
-    
