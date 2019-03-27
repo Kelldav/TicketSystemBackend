@@ -1,2 +1,2 @@
-bigevent            stdSellUser   100_10.510
-eventTitle          stdSellUser   200_23.500
+bigevent            stdSellUser   100 10.510
+eventTitle          stdSellUser   200 23.500

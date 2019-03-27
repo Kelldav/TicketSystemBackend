@@ -83,19 +83,11 @@ void mainMenu(string userAccounts, string availableTickets, string dailyTransact
 */
 int main(int argc, char *argv[])
 {
-    if (argc == 4)
-    {
-        string userAccounts = argv[1];
-        string availableTickets = argv[2];
-        string dailyTransactionFile = argv[3];
-        cout << "Welcome to the Ticket Selling Service System" << endl;
-        mainMenu(userAccounts, availableTickets, dailyTransactionFile);
-    }
-    else
-    {
-        cout << "Error: Invalid number of arguments." << endl;
-        cout << "Expecting: ./frontend files/userAccounts.txt files/availabletickets.txt files/dailyTransactionFile.txt" << endl;
-    }
-
+    string userAccounts = "../../files/userAccounts.txt";
+    string availableTickets = "../../files/availabletickets.txt";
+    string dailyTransactionFile = "../../files/dailyTransactionFile.txt";
+    cout << "Welcome to the Ticket Selling Service System" << endl;
+    mainMenu(userAccounts, availableTickets, dailyTransactionFile);
     return 0;
 }
+    
