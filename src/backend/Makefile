@@ -32,4 +32,4 @@ clean:
 	$(RM) *.class
 
 test: classes
-	$(JVM) org.junit.* $(TESTS)
+	$(JVM) -cp junit-4.13-beta-2.jar $(TESTS)
