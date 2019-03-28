@@ -1,1 +1,2 @@
 00 admin         AA 000310.00
+06 stdFullUser   FS 000222.00
