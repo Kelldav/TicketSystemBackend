@@ -1,0 +1,8 @@
+06 stdFullUser     FS 000222.00
+00 stdFullUser     FS 000222.00
+04 bigevent            stdSellUser   097 010.51
+00 stdFullUser   FS 099967.47
+03 newEvent            stdFullUser   075 050.00
+00 stdFullUser   FS 099999.00
+04 bigevent            stdSellUser   096 010.51
+00 admin         AA 000267.96
