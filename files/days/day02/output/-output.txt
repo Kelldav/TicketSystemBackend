@@ -1,0 +1,17 @@
+Welcome to the Ticket Selling Service System
+Enter a system command: 
+Please enter your username: 
+Error: Invalid username
+Enter a system command: 
+Error: You are not logged in.
+Enter a system command: 
+Error: Invalid command
+Enter a system command: 
+Error: Invalid command
+Enter a system command: 
+Error: Invalid command
+Enter a system command: 
+Error: Invalid command
+Enter a system command: 
+Error: You are not logged in.
+Enter a system command: 
